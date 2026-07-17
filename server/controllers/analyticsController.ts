@@ -1,8 +1,8 @@
-import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth';
+import type { Response } from 'express';
+import type { AuthRequest } from '../middleware/auth';
 import { mockStore } from '../services/mockDataStore';
 
-export const getDashboardStats = (req: AuthRequest, res: Response) => {
+export const getDashboardStats = (_req: AuthRequest, res: Response) => {
   const totalUsers = mockStore.users.length;
   const activeUsers = mockStore.users.filter(u => u.status === 'active').length;
   const suspendedUsers = mockStore.users.filter(u => u.status === 'suspended').length;

@@ -1,6 +1,6 @@
-import { Response, NextFunction } from 'express';
-import { AuthRequest } from './auth';
-import { mockStore, MockAuditLog } from '../services/mockDataStore';
+import type { AuthRequest } from './auth';
+import { mockStore } from '../services/mockDataStore';
+import type { MockAuditLog } from '../services/mockDataStore';
 import { AuditLogModel } from '../models/AuditLog';
 
 export function createAuditLog(

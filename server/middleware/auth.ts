@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 export const JWT_SECRET = process.env.JWT_SECRET || 'omnisense_pwa_super_secret_admin_key_2026';

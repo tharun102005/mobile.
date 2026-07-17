@@ -1,6 +1,6 @@
-import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth';
-import { mockStore, MockUser } from '../services/mockDataStore';
+import type { Response } from 'express';
+import type { AuthRequest } from '../middleware/auth';
+import { mockStore } from '../services/mockDataStore';
 import { createAuditLog } from '../middleware/audit';
 import * as XLSX from 'xlsx';
 
@@ -97,7 +97,7 @@ export const deleteUser = (req: AuthRequest, res: Response) => {
   return res.json({ message: 'User deleted successfully.' });
 };
 
-export const exportUsersCSV = (req: AuthRequest, res: Response) => {
+export const exportUsersCSV = (_req: AuthRequest, res: Response) => {
   const headers = ['ID,Name,Email,Phone,Role,Status,Last Login,Registered At,Device Info'];
   const rows = mockStore.users.map(u =>
     `"${u.id}","${u.name}","${u.email}","${u.phone}","${u.role}","${u.status}","${u.lastLogin}","${u.registeredAt}","${u.deviceInfo}"`
@@ -110,7 +110,7 @@ export const exportUsersCSV = (req: AuthRequest, res: Response) => {
   return res.send(csvContent);
 };
 
-export const exportUsersExcel = (req: AuthRequest, res: Response) => {
+export const exportUsersExcel = (_req: AuthRequest, res: Response) => {
   const worksheetData = mockStore.users.map(u => ({
     'User ID': u.id,
     'Full Name': u.name,

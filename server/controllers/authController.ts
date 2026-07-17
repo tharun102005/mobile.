@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET, AuthRequest } from '../middleware/auth';
+import { JWT_SECRET } from '../middleware/auth';
+import type { AuthRequest } from '../middleware/auth';
 import { mockStore } from '../services/mockDataStore';
 import { createAuditLog } from '../middleware/audit';
 

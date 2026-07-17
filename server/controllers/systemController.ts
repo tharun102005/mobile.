@@ -1,5 +1,5 @@
-import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth';
+import type { Response } from 'express';
+import type { AuthRequest } from '../middleware/auth';
 import { mockStore } from '../services/mockDataStore';
 import { createAuditLog } from '../middleware/audit';
 
@@ -48,11 +48,11 @@ export const getAuditLogs = (req: AuthRequest, res: Response) => {
   });
 };
 
-export const getErrorLogs = (req: AuthRequest, res: Response) => {
+export const getErrorLogs = (_req: AuthRequest, res: Response) => {
   return res.json({ errorLogs: mockStore.errorLogs });
 };
 
-export const getSettings = (req: AuthRequest, res: Response) => {
+export const getSettings = (_req: AuthRequest, res: Response) => {
   return res.json({ settings: currentSettings });
 };
 

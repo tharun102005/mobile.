@@ -1,9 +1,10 @@
-import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth';
-import { mockStore, MockAnnouncement } from '../services/mockDataStore';
+import type { Response } from 'express';
+import type { AuthRequest } from '../middleware/auth';
+import { mockStore } from '../services/mockDataStore';
+import type { MockAnnouncement } from '../services/mockDataStore';
 import { createAuditLog } from '../middleware/audit';
 
-export const getAnnouncements = (req: AuthRequest, res: Response) => {
+export const getAnnouncements = (_req: AuthRequest, res: Response) => {
   return res.json({ announcements: mockStore.announcements });
 };
 
@@ -57,7 +58,7 @@ export const deleteAnnouncement = (req: AuthRequest, res: Response) => {
   return res.json({ message: 'Announcement deleted.' });
 };
 
-export const getContacts = (req: AuthRequest, res: Response) => {
+export const getContacts = (_req: AuthRequest, res: Response) => {
   return res.json({ contacts: mockStore.contacts });
 };
 
